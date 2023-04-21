@@ -1,0 +1,43 @@
+---
+import Navigation from "../components/Navigation.astro";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width initial-scale=1.0"/>
+		<meta name="generator" content={Astro.generator}/>
+		<meta name="keywords" content="rustbyte, rustbyte solutions, rustbyte bot, rustbyte discord"/>
+		<meta name="description" content={description}/>
+
+		<meta name="title" content={title}>
+		<meta name="author" content="rustbyte solutions">
+		<meta name="description" content={description}>
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e2e"/>
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#eff1f5"/>
+
+		<title>{title}</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+		<link rel="apple-touch-icon" type="image/svg+xml" href="/favicon.svg"/>
+
+		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"/>
+	</head>
+	<body class="flex flex-row justify-center w-full h-full min-h-screen text-lg text-black font-inter dark:text-white bg-neutral-100 dark:bg-neutral-900">
+		<Navigation/>
+
+		<div id="main">
+			<slot/>
+			<!-- Footer later -->
+		</div>
+	</body>
+</html>

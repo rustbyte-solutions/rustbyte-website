@@ -1,0 +1,80 @@
+---
+import Button from "../components/NavigationButton.astro";
+
+let home, plugins, about, contact;
+let url = Astro.url.toString();
+
+if (url.includes("plugins")) {
+	plugins = true;
+} else if (url.includes("about")) {
+	about = true;
+} else if (url.includes("contact")) {
+	contact = true;
+} else {
+	home = true;
+}
+---
+
+<!-- Desktop Navigation Bar -->
+
+<nav class="invisible sm:visible z-50 fixed w-[90%] md:w-[90rem] xs:flex flex-row justify-between items-center px-4 py-2 mt-4 md:mt-6">
+    <div class="flex justify-between mt-2 drop-shadow-xl hover:drop-shadow-lg">
+        <div class="flex justify-start text-lg">
+			<img src="./drawing.svg" alt="rustbyte logo" class="w-40 h-26">
+        </div>
+        <div class="flex justify-end gap-12 bg-clip-text bg-gradient-to-r from-[#38e5e3] to-[#4e89d3] text-2xl">
+			<Button text="Home" href="/" click={home}/>
+			<Button text="Plugins" href="/plugins" click={plugins}/>
+			<Button text="About" href="/about" click={about}/>
+			<Button text="Contact Us" href="/contact" click={contact}/>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Bar & Menu -->
+
+<nav class="visible sm:invisible z-50 fixed w-[90%] md:w-[50rem] xs:flex flex-row justify-between items-center px-4 py-2 mt-4 md:mt-6">
+    <div class="flex justify-between">
+        <div class="flex justify-start text-lg">
+			<img src="./drawing.svg" class="w-32 h-18">
+        </div>
+        <div class="flex justify-end">
+            <button id="menu_button" title="Toggle menu button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                </svg>                  
+            </button>
+        </div>
+    </div>
+</nav>
+
+<menu id="menu" class="fixed top-0 left-0 z-40 flex items-center justify-center invisible w-screen h-screen backdrop-blur-12">
+    <div class="flex flex-col justify-center items-start gap-2 sm:gap-4 md:gap-6 bg-clip-text bg-gradient-to-r from-[#38e5e3] to-[#4e89d3] text-3xl">
+		<Button text="Home" href="/" click={home}/>
+		<Button text="Plugins" href="/plugins" click={plugins}/>
+		<Button text="About" href="/about" click={about}/>
+		<Button text="Contact Us" href="/contact" click={contact}/>
+    </div>
+</menu>
+
+<script>
+    const menu = document.getElementById("menu")!;
+    const main = document.getElementById("main")!;
+    const button = document.getElementById("menu_button")!;
+
+    button.addEventListener("click", () => {
+        if (menu.classList.contains("invisible")) {
+            document.body.style.overflow = "hidden";
+            main.classList.add("invisible");
+
+            menu.classList.remove("invisible");
+            menu.classList.add("visibile");
+        } else {
+            document.body.style.overflow = "auto";
+            main.classList.remove("invisible");
+
+            menu.classList.remove("visibile");
+            menu.classList.add("invisible");
+        }
+    });
+</script>
