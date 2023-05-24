@@ -8,6 +8,6 @@ export interface Props {
 const { text, href, click} = Astro.props;
 ---
 
-<a href={href} class="font-bold duration-500 hover:text-transparent">
+<a href={href} class="font-bold duration-500 hover:text-transparent button" id="navigationButton">
     {click ? <button class="text-transparent">{text}</button> : <button>{text}</button>}
 </a>

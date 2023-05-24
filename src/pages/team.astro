@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TeamPerson from '../components/TeamPerson.astro';
+---
+
+<Layout title="Team" description="A list of people that work at rustbyte solutions.">
+    <h1 class="mt-24 md:mt-0 text-4xl font-bold">
+        Team
+    </h1>
+
+    <h2 class="text-lg mx-12 sm:mx-28 md:mx-44 lg:mx-72 xl:mx-96 2xl:mx-[42rem]">
+        We are a team of passionate, hard-working, and like-minded individuals who love developing solutions for Rust.<br>
+    </h2>
+
+    <div class="mt-4 grid grid-flow-row gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <TeamPerson name="Cannabis" roles="👑 🔮" rolesTitle="Founder - Plugin Developer" discordId="97145520446787584"
+        description="Cannabis was the one with the idea of rustbyte. Without him rustbyte and many of our plugins wouldn't exist."/>
+    
+        <TeamPerson name="Ender" roles="👑 🤖 🌐" rolesTitle="Founder - Bot Developer - Website Developer" discordId="1022842005920940063"
+        description="Ender has made the front-end of the website entirely by himself and has helped with the bot too."/>
+    
+        <TeamPerson name="Hadock" roles="👑 🤖 🔮" rolesTitle="Founder - Bot Developer - Plugin Developer" discordId="412734157819609090"
+        description="Hadock is a hard working individual who has helped with the creation of our plugins and our Discord bot."/>
+    
+        <TeamPerson name="Andy" roles="🌐" rolesTitle="Website Developer" discordId="683002779396079667"
+        description="Andy works on the back-end of the site, all the stuff behind the scenes"/>
+    </div>
+</Layout>

@@ -1,0 +1,53 @@
+---
+export interface Props {
+	name: string;
+    roles: string;
+    rolesTitle: string;
+    discordId: string;
+    description: string;
+}
+
+const { name, roles, rolesTitle, discordId, description } = Astro.props;
+const picture = `../Profiles/${name}.png`
+const link = `https://discord.com/users/${discordId}`
+---
+
+<div class="w-56 md:w-64 flex flex-col items-center text-center backdrop-blur-sm border-2 border-white/10 bg-white/5 shadow-md gap-1 px-5 py-2 rounded-lg">
+    <div class="relative top-0 left-0">
+        <img id="avatar" class="relative top-0 left-0 w-[5.5rem] h-[5.5rem] rounded-full duration-500" src={picture}>
+        <a href={link} target="_blank">
+            <img id="discord" class="absolute top-6 left-3.5 w-[3.75rem] h-[2.75rem] opacity-0 hover:opacity-100 duration-500" src="../discord.png">
+        </a>
+    </div>
+
+    <h2 class="mt-2 text-lg font-semibold" title={rolesTitle}>
+        {roles}
+    </h2>
+
+    <h1 class="text-xl font-bold">
+        {name}
+    </h1>
+
+    <p class="mt-2 text-md">
+        {description}
+    </p>
+</div>
+
+<script>
+    const avatars = document.querySelectorAll("#avatar");
+    const discords = document.querySelectorAll("#discord");
+
+    for (let i = 0; i < avatars.length; i++) {
+        discords[i].addEventListener("mouseenter", () => {
+            avatars[i].classList.add("scale-105");
+            avatars[i].classList.add("opacity-60");
+            avatars[i].classList.add("sepia");
+        });
+
+        discords[i].addEventListener("mouseleave", () => {
+            avatars[i].classList.remove("scale-105");
+            avatars[i].classList.remove("opacity-60");
+            avatars[i].classList.remove("sepia");
+        });
+    }
+</script>

@@ -23,8 +23,7 @@ const { title, description } = Astro.props;
 		<meta name="title" content={title}>
 		<meta name="author" content="rustbyte solutions">
 		<meta name="description" content={description}>
-		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e2e"/>
-		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#eff1f5"/>
+		<meta name="theme-color" content="#1e1e2e"/>
 
 		<title>{title}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -32,12 +31,19 @@ const { title, description } = Astro.props;
 
 		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"/>
 	</head>
-	<body class="flex flex-row justify-center w-full h-full min-h-screen text-lg text-gray-600 font-inter dark:text-white bg-neutral-100 dark:bg-neutral-900">
+	<body class="font-inter text-white bg-neutral-900 bg-[url('./background.jpg')] bg-no-repeat bg-fixed bg-cover bg-center">
 		<Navigation/>
 
-		<div id="main">
+		<div class="z-10 md:min-w-screen md:min-h-screen flex flex-col items-center justify-center text-center" id="main">
 			<slot/>
-			<!-- Footer later -->
 		</div>
 	</body>
 </html>
+
+<style is:global>
+    .rustbyte {
+		background-image: linear-gradient(to right, #38e5e3, #4e89d3);
+		-webkit-background-clip: text;
+  		-webkit-text-fill-color: transparent;
+	}
+</style>
