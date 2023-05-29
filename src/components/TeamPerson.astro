@@ -8,21 +8,23 @@ export interface Props {
 }
 
 const { name, roles, rolesTitle, discordId, description } = Astro.props;
-const picture = `../Profiles/${name}.png`
+const picture = `../Profiles/${name}.webp`
 const link = `https://discord.com/users/${discordId}`
+const profilePictureAlt = `${name}'s Profile Picture`
+const discordProfileAlt = `${name}'s Discord Profile`
 ---
 
 <div class="w-56 md:w-64 flex flex-col items-center text-center backdrop-blur-sm border-2 border-white/10 bg-white/5 shadow-md gap-1 px-5 py-2 rounded-lg">
     <div class="relative top-0 left-0">
-        <img id="avatar" class="relative top-0 left-0 w-[5.5rem] h-[5.5rem] rounded-full duration-500" src={picture}>
+        <img alt={profilePictureAlt} id="avatar" height="88px" width="88px" class="relative top-0 left-0 rounded-full duration-500" src={picture}>
         <a href={link} target="_blank">
-            <img id="discord" class="absolute top-6 left-3.5 w-[3.75rem] h-[2.75rem] opacity-0 hover:opacity-100 duration-500" src="../discord.png">
+            <img alt={discordProfileAlt} id="discord" height="44px" width="60px" class="absolute top-6 left-3.5 opacity-0 hover:opacity-100 duration-500" src="../discord.png">
         </a>
     </div>
 
-    <h2 class="mt-2 text-lg font-semibold" title={rolesTitle}>
+    <div id="role" class="mt-2 flex flex-row text-lg font-semibold text-white" title={rolesTitle}>
         {roles}
-    </h2>
+    </div>
 
     <h1 class="text-xl font-bold">
         {name}
@@ -34,8 +36,30 @@ const link = `https://discord.com/users/${discordId}`
 </div>
 
 <script>
+    const roles = document.querySelectorAll("#role");
     const avatars = document.querySelectorAll("#avatar");
     const discords = document.querySelectorAll("#discord");
+    const altOptions: { [key: string]: string } = {
+            "crown": "Founder Icon",
+            "plugin": "Plugin Developer Icon",
+            "web": "Web Developer Icon",
+            "bot": "Bot Developer Icon",
+        };
+
+    function makeImage(text: string) {
+        const alt = altOptions[text] || "Unknown Icon";
+
+        return `<img src='./Icons/${text}.svg' alt='${alt}' height='24px' width='24px'/>`
+    }
+
+    window.addEventListener("load", () => {
+        roles.forEach((role) => {
+            role.innerHTML = role.innerHTML.replace("👑", makeImage("crown"));
+            role.innerHTML = role.innerHTML.replace("🔮", makeImage("plugin2"));
+            role.innerHTML = role.innerHTML.replace("🌐", makeImage("web"));
+            role.innerHTML = role.innerHTML.replace("🤖", makeImage("robot"));
+        });
+});
 
     for (let i = 0; i < avatars.length; i++) {
         discords[i].addEventListener("mouseenter", () => {
