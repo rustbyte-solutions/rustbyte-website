@@ -34,7 +34,7 @@ const { title, description } = Astro.props;
 	<body class="font-inter text-white bg-neutral-900 bg-[url('./background.webp')] bg-no-repeat bg-fixed bg-cover bg-center">
 		<Navigation/>
 
-		<div class="z-10 md:min-w-screen md:min-h-screen flex flex-col items-center justify-center text-center" id="main">
+		<div class="mb-32 lg:mb-0 flex flex-col justify-center items-center text-center overflow-y-scroll lg:min-h-screen lg:min-w-screen" id="main">
 			<slot/>
 		</div>
 	</body>
