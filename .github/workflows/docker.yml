@@ -20,6 +20,6 @@ jobs:
             docker stop rustbyte-website
             docker rm rustbyte-website´
             cd rustbyte-website
-            git pull
+            git pull https://rustbyte-solutions:${{ secrets.GIT_PASSWORD }}@github.com/rustbyte-solutions/rustbyte-website.git
             docker build -t rustbyte-website .
             docker run -d -p 8080:8080 rustbyte-website
