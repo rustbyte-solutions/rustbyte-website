@@ -8,24 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Pull latest changes
-        script: |
-          cd rustbyte-website
-          git pull
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: rustbyte-website
-
       - name: SSH into your server and redeploy the container
         uses: appleboy/ssh-action@master
         with:
@@ -35,5 +18,8 @@ jobs:
           port: 22
           script: |
             docker stop rustbyte-website
-            docker rm rustbyte-website
+            docker rm rustbyte-website´
+            cd rustbyte-website
+            git pull
+            docker build -t rustbyte-website .
             docker run -p 8080:8080 rustbyte-website
