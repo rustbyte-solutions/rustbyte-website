@@ -31,10 +31,10 @@ const { title, description } = Astro.props;
 
 		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"/>
 	</head>
-	<body class="font-inter text-white bg-neutral-900 bg-[url('../background.webp')] bg-no-repeat bg-fixed bg-cover bg-center">
+	<body class="font-inter text-white bg-neutral-900 bg-[url('http://cdn.korino.dev/u/0BhXPB.webp')] bg-no-repeat bg-fixed bg-cover bg-center">
 		<Navigation/>
 
-		<div class="mb-32 lg:mb-0 flex flex-col justify-center items-center text-center overflow-y-scroll lg:min-h-screen lg:min-w-screen" id="main">
+		<div class="mb-32 lg:mb-0 flex flex-col justify-center items-center text-center lg:min-h-screen lg:min-w-screen" id="main">
 			<slot/>
 		</div>
 	</body>
