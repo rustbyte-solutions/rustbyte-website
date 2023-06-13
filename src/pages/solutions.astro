@@ -1,9 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Solution from '../components/Solution.astro';
 ---
 
-<Layout title="Solutions" description="On this page you can find a list of solutions rustbyte solutions has made.">
-    <h1 class="mt-24 md:mt-0 text-5xl font-extrabold font-sans rustbyte">
-        Coming Soon™️
+<Layout title="Solutions" description="A list of our revolutionary solutions.">
+    <h1 class="mt-24 md:mt-32 lg:mt-0 text-4xl font-bold">
+        Solutions
     </h1>
+
+    <h2 class="text-lg mx-12 sm:mx-28 md:mx-44 lg:mx-72 xl:mx-96 2xl:mx-[42rem]">
+        We have plenty of revolutionary solutions. Here are some of them.<br>
+    </h2>
+
+    <div class="mt-4 flex flex-col sm:flex-row gap-4 items-center justify-center">
+        <Solution name="Javelin" link="https://codefling.com/carbon/javelin"
+        description="Turns the currently useless smoke rockets into fun javelin rockets. Very basic and barebones."/>
+    </div>
 </Layout>
