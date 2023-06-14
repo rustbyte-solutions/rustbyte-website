@@ -12,8 +12,17 @@ import Solution from '../components/Solution.astro';
         We have plenty of revolutionary solutions. Here are some of them.<br>
     </h2>
 
-    <div class="mt-4 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Solution name="Javelin" link="https://codefling.com/carbon/javelin"
+    <div class="mt-4 flex flex-row flex-wrap gap-4 items-center justify-center">
+        <Solution name="Javelin" link="https://codefling.com/carbon/javelin" type="png" height="160px" width="160px"
         description="Turns the currently useless smoke rockets into fun javelin rockets. Very basic and barebones."/>
+    
+        <Solution name="The Door Knocker" link="https://codefling.com/plugins/the-door-knocker" type="webp" height="120px" width="120px"
+        description="Allows players to fire off more than 1 rocket at a time if they have enough rockets in their inventory."/>
+    
+        <Solution name="Glorious Deaths" link="https://codefling.com/carbon/javelin" type="webp" height="120px" width="160px"
+        description="Adds some flair to your corpse when you're killed by another player!"/>
+    
+        <Solution name="Range Finder" link="https://codefling.com/carbon/range-finder" type="webp" height="88px" width="88px"
+        description="Adds a simplistic range finder to the binoculars."/>
     </div>
 </Layout>

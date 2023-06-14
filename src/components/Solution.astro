@@ -3,17 +3,20 @@ export interface Props {
 	name: string;
     link: string;
     description: string;
+    type: string;
+    height: string;
+    width: string;
 }
 
-const { name, link, description } = Astro.props;
-const solutionImage = `../Solutions/${name}.png`
+const { name, link, description, type, height, width } = Astro.props;
+const solutionImage = `../Solutions/${name}.${type}`
 const solutionImageAlt = `${name}`
 ---
 
 <a href={link}>
     <div class="hover:bg-white/10 duration-500 w-56 md:w-64 flex flex-col items-center text-center backdrop-blur-sm border-2 border-white/10 bg-white/5 shadow-md gap-1 px-5 py-2 rounded-lg">
         <div class="relative top-0 left-0">
-            <img alt={solutionImageAlt} id="avatar" height="88px" width="88px" class="relative top-0 left-0 rounded-full duration-500" src={solutionImage}>
+            <img alt={solutionImageAlt} id="avatar" height={height} width={width} class="relative top-0 left-0 duration-500 rounded-xl" src={solutionImage}>
         </div>
 
         <h1 class="text-xl font-bold">
