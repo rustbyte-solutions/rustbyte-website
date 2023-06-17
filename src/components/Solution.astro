@@ -3,26 +3,22 @@ export interface Props {
 	name: string;
     link: string;
     description: string;
-    type: string;
-    height: string;
-    width: string;
 }
 
-const { name, link, description, type, height, width } = Astro.props;
-const solutionImage = `../Solutions/${name}.${type}`
+const { name, link, description } = Astro.props;
+const solutionImage = `../Solutions/${name}.webp`
 const solutionImageAlt = `${name}`
 ---
-
-<a href={link}>
+<a href={link} class="flex">
     <div class="hover:bg-white/10 duration-500 w-56 md:w-64 flex flex-col items-center text-center backdrop-blur-sm border-2 border-white/10 bg-white/5 shadow-md gap-1 px-5 py-2 rounded-lg">
-        <div class="relative top-0 left-0">
-            <img alt={solutionImageAlt} id="avatar" height={height} width={width} class="relative top-0 left-0 duration-500 rounded-xl" src={solutionImage}>
+        <div>
+            <img alt={solutionImageAlt} id="avatar" class="duration-500 rounded-xl" src={solutionImage}>
         </div>
-
+        
         <h1 class="text-xl font-bold">
             {name}
         </h1>
-
+        
         <p class="mt-2 text-md">
             {description}
         </p>
