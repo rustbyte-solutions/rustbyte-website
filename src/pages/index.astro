@@ -1,16 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="rustbyte solutions" description="Explore what rustbyte solutions has to offer">
 
-	<h1 class="font-inter font-bold">
-		good luck...
-	</h1>
+	<div class="relative h-full">
+        <img class="fade object-contain opacity-10 w-full h-full" src="/assets/waves.png" alt="">
+      </div>
+      <div class="absolute inset-0">
+		<Navbar/>
+        <Header/>
+      </div>
+	
+
 </Layout>
 
-<style>
+<style> 
 	.fade {
-		mask-image: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, #111111 100%);
+		mask-image: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, #ffffff 100%);
 	}
 </style>
