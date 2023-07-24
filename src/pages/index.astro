@@ -5,16 +5,14 @@ import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="rustbyte solutions" description="Explore what rustbyte solutions has to offer">
-
 	<div class="relative h-full">
-        <img class="fade object-contain opacity-10 w-full h-full" src="/assets/waves.png" alt="">
-      </div>
-      <div class="absolute inset-0">
-		<Navbar/>
-        <Header/>
-      </div>
-	
+        <img class="fade object-cover opacity-10 w-full h-full block dark:hidden" src="Black/Waves.webp" alt="">
+		<img class="fade object-cover opacity-10 w-full h-full hidden dark:block" src="White/Waves.webp" alt="">
+	</div>
 
+	<div class="absolute inset-0">
+        <Header/>
+	</div>
 </Layout>
 
 <style> 

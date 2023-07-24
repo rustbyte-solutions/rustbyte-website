@@ -1,0 +1,12 @@
+---
+interface Props {
+	text: string;
+	href: string;
+}
+
+const { text, href } = Astro.props;
+---
+
+<li class="py-2 px-3 underline decoration-transparent hover:decoration-inherit">
+    <a href={href}>{text}</a>
+</li>

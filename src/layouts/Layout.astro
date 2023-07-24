@@ -1,4 +1,6 @@
---- 
+---
+import Navbar from "../components/Navbar.astro";
+
 interface Props {
 	title: string;
 	description: string;
@@ -8,7 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="[color-scheme:light] dark:[color-scheme:dark] scroll-smooth overflow-x-hidden font-inter bg-white dark:bg-[#111111] text-black dark:text-white">
+<html lang="en" class="scroll-smooth overflow-x-hidden font-inter">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,15 +24,62 @@ const { title, description } = Astro.props;
 		<meta name="description" content={description}>
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111"/>
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF"/>
+		<meta name="theme-color" media="(prefers-color-scheme: no-preference)" content="#FFFFFF"/>
 
 		<title>{title}</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-		<link rel="apple-touch-icon" type="image/svg+xml" href="/favicon.svg"/>
+
+		<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="Black/Logo.svg"/>
+		<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="White/Logo.svg"/>
+		<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: no-preference)" href="White/Logo.svg"/>
+
+		<link rel="apple-touch-icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="Black/Logo.svg"/>
+		<link rel="apple-touch-icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="White/Logo.svg"/>
+		<link rel="apple-touch-icon" type="image/svg+xml" media="(prefers-color-scheme: no-preference)" href="White/Logo.svg"/>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+		<script is:inline>
+			if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+				document.documentElement.classList.add("dark");
+				document.documentElement.classList.remove("color-scheme-light");
+				document.documentElement.classList.add("color-scheme-dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+				document.documentElement.classList.remove("color-scheme-dark");
+				document.documentElement.classList.add("color-scheme-light");
+			}
+		</script>
 	</head>
-	<body>
+	<body class="bg-white dark:bg-[#111111] text-black dark:text-white duration-500">
 		<slot/>
+
+		<div class="absolute inset-0">
+			<Navbar/>
+		</div>
 	</body>
 </html>
+
+<script>
+	const sun = document.getElementById("sun")!;
+	const moon = document.getElementById("moon")!;
+
+	window.addEventListener("load", () => {
+		if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+			sun.classList.remove("hidden");
+		} else {
+			moon.classList.remove("hidden");
+		}
+	});
+</script>
+
+<style>
+	.color-scheme-dark {
+		color-scheme: dark;
+	}
+
+	.color-scheme-light {
+		color-scheme: light;
+	}
+</style>
