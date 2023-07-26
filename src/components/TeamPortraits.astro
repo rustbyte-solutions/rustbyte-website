@@ -1,0 +1,22 @@
+---
+interface Props {
+	role: string;
+	description: string;
+    profileImage: string;
+    alt: string;
+}
+
+const { role, description, profileImage, alt } = Astro.props;
+---
+
+<div class="flex w-full max-h-72 md:max mt-10">
+    <div class="mx-auto rounded-3xl p-10 md:p-10 border-2 border-gray-400 drop-shadow-lg bg-white dark:bg-black dark:border-[#353535]">
+        <div class="w-16 h-16 mx-auto bg-red-500 rounded-full ">
+            <img src={profileImage} alt={alt}>
+            <div>
+                <!-- h1 {role} tag should go here -->
+                <!-- p {description{} tag should go here -->
+            </div>
+        </div>
+    </div>
+</div>
