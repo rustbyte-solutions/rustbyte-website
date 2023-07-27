@@ -1,41 +1,74 @@
 ---
+import Button from "../components/MenuButton.astro";
 import NavbarLink from "../components/NavbarLink.astro";
 ---
 
-<div class="top-5 sticky flex gap-4 mt-5 mx-auto justify-center w-3/5 h-10">
-    <div class="flex w-40 h-full justify-start gap-3">
+<!-- Desktop navbar -->
+<div class="top-5 justify-center gap-16 mx-auto h-10 w-[75vh] hidden sm:sticky sm:flex">
+    <div class="flex flex-row items-center justify-center w-full h-full">
         <img class="w-[1.9375rem] h-[1.75rem] mt-1 block dark:hidden" src="Black/Logo.svg" alt="Black Rustbyte Logo">
         <img class="block dark:hidden" src="Black/Rustbyte.svg" alt="Black Rustbyte Text">
 
         <img class="w-[1.9375rem] h-[1.75rem] mt-1 hidden dark:block" src="White/Logo.svg" alt="White Rustbyte Logo">
         <img class="hidden dark:block" src="White/Rustbyte.svg" alt="White Rustbyte Text">
     </div>
-    
-    <div class="flex items-center justify-center w-full h-full">
-        <nav class="bg-white dark:bg-black justify-center border-2 border-gray-400 dark:border-[#353535] rounded-full w-1/2">
-            <ul class="font-inter font-medium flex h-full items-center justify-between mx-10">
-                <NavbarLink text="Team" href="#team"/>
-                <NavbarLink text="Solutions" href="#solutions"/>
-                <NavbarLink text="Contact" href="#contact"/>
-            </ul>
-        </nav>
+
+    <div class="flex flex-row items-center justify-center rounded-full w-full h-full
+            bg-white dark:bg-black border-2 border-gray-400 dark:border-[#353535]">
+        <div class="flex flex-row mx-8 gap-6">
+            <NavbarLink text="Team" href="#team"/>
+            <NavbarLink text="Solutions" href="#solutions"/>
+            <NavbarLink text="Contact" href="#contact"/>
+        </div>
     </div>
 
-    <div class="flex w-40 h-full justify-end">
-        <button class="flex bg-white dark:bg-black justify-center items-center border-2 border-gray-400 dark:border-[#353535] rounded-full w-16 h-full"
-        aria-label="Dark/light mode switch" id="themeButton">
-            <div class="justify-center items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="moon">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
-                </svg>
+    <div class="flex flex-row items-center justify-center w-full h-full">
+        <button class="w-16 h-full flex items-center justify-center bg-white dark:bg-black border-2 border-gray-400 dark:border-[#353535] rounded-full"
+                aria-label="Dark/light mode switch" id="themeButton">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="moon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+            </svg>
 
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="sun">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
-                </svg>
-            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="sun">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+            </svg>
         </button>
     </div>
 </div>
+
+
+<!-- Mobile menu button -->
+<button id="menuButton" class="z-20 fixed sm:hidden top-2 right-2 rounded-full flex-row px-2 py-2 bg-white/20 dark:bg-black/20 backdrop-blur-[8px] shadow-sm">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" class="w-8 h-8" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"/>
+    </svg>
+</button>
+
+<!-- Mobile menu -->
+<menu id="menu" class="fixed top-0 left-0 z-10 flex items-center justify-center invisible w-screen h-screen">
+	<div class="flex flex-col justify-center items-start gap-2 sm:gap-4 md:gap-6 bg-clip-text bg-gradient-to-r from-[#38e5e3] to-[#4e89d3] text-3xl">
+		<Button text="Team" href="#team" />
+		<Button text="Solutions" href="#solutions"/>
+		<Button text="Contact" href="#contact"/>
+	</div>
+</menu>
+
+
+<style>
+    .invisible {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s linear 300ms, opacity 300ms;
+    }
+
+    .visibile {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 300ms;
+    }
+</style>
 
 <script>
 	const sun = document.getElementById("sun")!;
@@ -59,4 +92,60 @@ import NavbarLink from "../components/NavbarLink.astro";
             document.documentElement.classList.remove("color-scheme-light");
         }
     });
+
+    let duration500Items = []!;
+	const items = document.querySelectorAll("*")!;
+	const menu = document.getElementById("menu")!;
+	const main = document.getElementById("main")!;
+    const menuButton = document.getElementById("menuButton")!
+    const menuLinkButtons = document.querySelectorAll("#menuLinkButton")!;
+
+	items.forEach(item => {
+		if (item.classList.contains("duration-500")) {
+			if (item.id != "navigationButton") {
+				duration500Items.push(item)!;
+			}
+		}
+	});
+
+    menuLinkButtons.forEach(menuLinkButton => {
+        menuLinkButton.addEventListener("click", () => {
+            duration500Items.forEach(item => {
+                item.classList.add("duration-500");
+            });
+
+            document.body.style.overflow = "auto";
+
+            main.classList.remove("invisible");
+
+            menu.classList.remove("visibile");
+            menu.classList.add("invisible");
+        });
+    });
+
+	menuButton.addEventListener("click", () => {
+		if (menu.classList.contains("invisible")) {
+			duration500Items.forEach(item => {
+				item.classList.remove("duration-500");
+			})
+
+			document.body.style.overflow = "hidden";
+
+			main.classList.add("invisible");
+
+			menu.classList.remove("invisible");
+			menu.classList.add("visibile");
+		} else {
+			duration500Items.forEach(item => {
+				item.classList.add("duration-500");
+			})
+
+			document.body.style.overflow = "auto";
+
+			main.classList.remove("invisible");
+
+			menu.classList.remove("visibile");
+			menu.classList.add("invisible");
+		}
+	});
 </script>

@@ -1,13 +1,26 @@
 ---
-import TeamPortraits from "../components/TeamPortraits.astro"
+import TeamPortrait from "../components/TeamPortrait.astro"
 ---
 
-<div class="mt-32 px-10">
+<div class="mt-32 px-10" id="team">
     <div class="flex flex-col font-inter font-medium items-center w-1/2 mx-auto">
         <h1 class="md:text-7xl text-5xl text-center tracking-tight font-bold">Meet the team</h1>
-        <p class="md:text-2xl text-xl font-normal text-center mt-5 md:mt-10">See the minds behind Rustbyte 
+        <p class="md:text-2xl text-xl font-normal text-center mt-4">See the minds behind Rustbyte 
             <span class="block">and what they contribute to the team<span/>
         </p>
     </div>
-    <!-- <TeamPortraits /> should go here somewhere -->
+
+    <div class="mt-12 mx-12 flex flex-row flex-wrap gap-4 items-stretch justify-center">
+        <TeamPortrait name="Cannabis" roles="👑 🔮" rolesTitle="Founder - Plugin Developer" discordId="97145520446787584"
+        description="Cannabis was the one with the idea of rustbyte. Without him rustbyte and many of our plugins wouldn't exist."/>
+    
+        <TeamPortrait name="Ender" roles="👑 🤖 🌐" rolesTitle="Founder - Bot Developer - Website Developer" discordId="1022842005920940063"
+        description="Ender has made the front-end of the website entirely by himself and has helped with the bot too."/>
+
+        <TeamPortrait name="Albert" roles="👑 🔮" rolesTitle="Founder - Plugin Developer" discordId="97145520446787584"
+        description="Cannabis was the one with the idea of rustbyte. Without him rustbyte and many of our plugins wouldn't exist."/>
+        
+        <TeamPortrait name="Andy" roles="🤖 🌐" rolesTitle="Website Developer" discordId="683002779396079667"
+        description="Andy works on the back-end of the site, all the stuff behind the scenes"/>
+    </div>
 </div>

@@ -10,7 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden font-inter">
+<html lang="en" class="scroll-smooth overflow-x-hidden font-inter font-medium">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,7 +53,9 @@ const { title, description } = Astro.props;
 		</script>
 	</head>
 	<body class="bg-white dark:bg-[#111111] text-black dark:text-white duration-500">
-		<slot/>
+		<div id="main">
+			<slot/>
+		</div>
 
 		<div class="absolute inset-0">
 			<Navbar/>
