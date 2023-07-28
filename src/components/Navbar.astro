@@ -93,20 +93,11 @@ import NavbarLink from "../components/NavbarLink.astro";
         }
     });
 
-    let duration500Items = []!;
-	const items = document.querySelectorAll("*")!;
+	const duration500Items: NodeListOf<HTMLElement> = document.querySelectorAll(".duration-500");
 	const menu = document.getElementById("menu")!;
 	const main = document.getElementById("main")!;
     const menuButton = document.getElementById("menuButton")!
     const menuLinkButtons = document.querySelectorAll("#menuLinkButton")!;
-
-	items.forEach(item => {
-		if (item.classList.contains("duration-500")) {
-			if (item.id != "navigationButton") {
-				duration500Items.push(item)!;
-			}
-		}
-	});
 
     menuLinkButtons.forEach(menuLinkButton => {
         menuLinkButton.addEventListener("click", () => {
