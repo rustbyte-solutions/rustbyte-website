@@ -13,9 +13,9 @@ const link = `https://discord.com/users/${discordId}`
 const profilePictureAlt = `${name}'s Profile Picture`
 ---
 
-<div class="w-56 md:w-64 flex flex-col items-center text-center backdrop-blur-sm border-2 border-[#C6C6C6] dark:border-[#353535] bg-[#F9F9F9] dark:bg-[#0A0A0A] shadow-xl shadow-black/25 gap-1 px-5 py-2 rounded-lg">
+<div class="flex flex-col justify-center items-center text-center w-56 md:w-64 bg-[#F9F9F9] dark:bg-[#0A0A0A] border-2 border-[#C6C6C6] dark:border-[#353535] gap-1 px-5 py-2 shadow-xl rounded-lg duration-500">
     <a href={link} class="duration-500 hover:grayscale hover:scale-105">
-        <img alt={profilePictureAlt} id="avatar" height="114px" width="114px" class="rounded-full mt-7" src={picture}>
+        <img alt={profilePictureAlt} id="avatar" height="114px" width="114px" class="rounded-full mt-4" src={picture}>
     </a>
 
     <div id="role" class="mt-2 flex flex-row text-lg font-semibold" title={rolesTitle}>
@@ -26,7 +26,7 @@ const profilePictureAlt = `${name}'s Profile Picture`
         {name}
     </h1>
 
-    <p class="mt-2 text-md font-semibold">
+    <p class="mt-2 mb-4 text-md font-semibold">
         {description}
     </p>
 </div>

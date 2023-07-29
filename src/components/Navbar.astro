@@ -4,7 +4,7 @@ import NavbarLink from "../components/NavbarLink.astro";
 ---
 
 <!-- Desktop navbar -->
-<div class="top-5 justify-center gap-16 mx-auto h-10 w-[75vh] hidden sm:sticky sm:flex">
+<div class="hidden sm:flex sm:fixed justify-center items-center z-10 top-5 h-10 w-[75vh]">
     <div class="flex flex-row items-center justify-center w-full h-full">
         <img class="w-[1.9375rem] h-[1.75rem] mt-1 block dark:hidden" src="Black/Logo.svg" alt="Black Rustbyte Logo">
         <img class="block dark:hidden" src="Black/Rustbyte.svg" alt="Black Rustbyte Text">
@@ -23,7 +23,8 @@ import NavbarLink from "../components/NavbarLink.astro";
     </div>
 
     <div class="flex flex-row items-center justify-center w-full h-full">
-        <button class="w-16 h-full flex items-center justify-center bg-white dark:bg-black border-2 border-gray-400 dark:border-[#353535] rounded-full"
+        <button class="w-16 h-full flex items-center justify-center rounded-full
+                    bg-white dark:bg-black border-2 border-gray-400 dark:border-[#353535]"
                 aria-label="Dark/light mode switch" id="themeButton">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="moon">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
@@ -71,9 +72,9 @@ import NavbarLink from "../components/NavbarLink.astro";
 </style>
 
 <script>
-	const sun = document.getElementById("sun")!;
-	const moon = document.getElementById("moon")!;
-    const themeButton = document.getElementById("themeButton")!;
+	const sun = document.getElementById("sun") as HTMLInputElement;
+	const moon = document.getElementById("moon") as HTMLInputElement;
+    const themeButton = document.getElementById("themeButton") as HTMLInputElement;
 
     themeButton.addEventListener("click", () => {
         if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
@@ -94,10 +95,10 @@ import NavbarLink from "../components/NavbarLink.astro";
     });
 
 	const duration500Items: NodeListOf<HTMLElement> = document.querySelectorAll(".duration-500");
-	const menu = document.getElementById("menu")!;
-	const main = document.getElementById("main")!;
-    const menuButton = document.getElementById("menuButton")!
-    const menuLinkButtons = document.querySelectorAll("#menuLinkButton")!;
+	const menu = document.getElementById("menu") as HTMLInputElement;
+	const main = document.getElementById("main") as HTMLInputElement;
+    const menuButton = document.getElementById("menuButton") as HTMLInputElement;
+    const menuLinkButtons = document.querySelectorAll("#menuLinkButton") as NodeListOf<HTMLElement>;
 
     menuLinkButtons.forEach(menuLinkButton => {
         menuLinkButton.addEventListener("click", () => {

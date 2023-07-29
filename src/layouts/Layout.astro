@@ -53,12 +53,12 @@ const { title, description } = Astro.props;
 		</script>
 	</head>
 	<body class="bg-white dark:bg-[#111111] text-black dark:text-white duration-500">
-		<div id="main">
-			<slot/>
+		<div class="flex items-center justify-center">
+			<Navbar/>
 		</div>
 
-		<div class="absolute inset-0">
-			<Navbar/>
+		<div id="main">
+			<slot/>
 		</div>
 	</body>
 </html>
