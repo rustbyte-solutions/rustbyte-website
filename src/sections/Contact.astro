@@ -1,32 +1,29 @@
-<div class="mt-32">
-
-    <!-- background image here???????
-    <div class="relative">
-        <img class="w-screen h-[90vh] object-cover opacity-10 block dark:hidden" src="Black/XO.png" alt="">
-		<img class="w-screen h-[90vh] object-cover opacity-10 hidden dark:block" src="White/XO.png" alt="">
-	</div> 
-    -->
+<!-- background image here???????
+<div class="relative">
+    <img class="w-screen h-[90vh] object-cover opacity-10 block dark:hidden" src="Black/XO.webp" alt="">
+    <img class="w-screen h-[90vh] object-cover opacity-10 hidden dark:block" src="White/XO.webp" alt="">
+</div> 
+-->
 
 
-    <!-- Made the background red so i could see what I was working with -->
-    <div class="bg-red-500 w-[20rem] md:w-1/2 mx-auto">
+<div class="w-[20rem] md:w-[67rem] md:h-1/2 mx-auto md:flex justify-between mt-32">
 
-        <div class="inline font-inter font-bold">
-            <h1 class="text-5xl md:text-6xl text-center md:text-right">Contact Us</h1>
-            <p class="font-medium text-center md:text-right mt-5 md:mt-10 text-xl leading-tight">
-                <span class="block">Wether you have a suggestion</span>
-                <span class="block">or want to give feedack</span>
-                <span>we're here to listen</span>
-            </p>
-        </div>
-
-        <div class="w-full md:w-1/2 top-0">
-            <form action="" class="flex flex-col w-full mt-5">
-                <input type="text" name="name" placeholder="Name" class="p-2 border-2 border-gray-400 bg-white rounded-lg">
-                <input type="text" id="email" name="email" placeholder="Email" class="mt-2 p-2 border-2 border-gray-400 bg-white rounded-lg" required>
-                <textarea name="message" placeholder="Leave a message!" class="mt-2 p-2 border-2 border-gray-400 bg-white rounded-lg" required></textarea>
-                <button type="submit"></button>
-            </form>
-        </div>
+    <div class="inline font-inter font-bold">
+        <h1 class="text-5xl md:text-7xl text-center tracking-tight md:text-left">Contact Us</h1>
+        <p class="font-medium text-center md:text-left mt-5 md:mt-10 text-xl md:text-2xl leading-tight">
+            <span class="block">Wether you have a suggestion</span>
+            <span class="block">or want to give feedack</span>
+            <span>we're here to listen</span>
+        </p>
     </div>
+
+    <div class="w-full md:w-1/2 flex top-0 mt-8 md:mt-2">
+        <form action="" class="flex flex-col gap-2 w-full">
+            <input type="text" name="name" placeholder="Name" class="p-2 border-2 border-gray-400 bg-white rounded-lg">
+            <input type="text" id="email" name="email" placeholder="Email" class="p-2 border-2 border-gray-400 bg-white rounded-lg" required>
+            <textarea name="message" placeholder="Leave a message!" class="h-2/3 p-2 border-2 border-gray-400 bg-white rounded-lg" required></textarea>
+            <button type="submit" class="rounded-md md:w-1/4 px-9 py-4 font-normal bg-black text-white">Submit</button>
+        </form>
+    </div>
+
 </div>
