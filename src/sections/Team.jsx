@@ -1,5 +1,5 @@
 import TeamPortrait from "../components/TeamPortrait";
-import TeamData from "../data/Team";
+import TeamData from "../data/team";
 
 function Team() {
     /*  For teams, we return an array of elements, 
