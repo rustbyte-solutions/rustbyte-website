@@ -5,7 +5,6 @@ export default [
         rolesTitle: "Founder - Plugin Developer",
         discordId: "97145520446787584",
         description: "Rustbyte's main founder. Without him rustbyte and many of our plugins wouldn't exist.",
-        picture: "/Profiles/Cannabis.webp",
         link: "https://discord.com/users/97145520446787584"
     },
     {
@@ -14,7 +13,6 @@ export default [
         rolesTitle: "Founder - Bot Developer - Website Developer",
         discordId: "1022842005920940063",
         description: "One of the main frontend devs, Ender made the website you're looking at come to life.",
-        picture: "/Profiles/Ender.webp",
         link: "https://discord.com/users/1022842005920940063"
     },
     {
@@ -23,7 +21,6 @@ export default [
         rolesTitle: "Founder - Plugin Developer",
         discordId: "204040618811326465",
         description: "Designer first, frontend second. Albert helped in coding the website and is our main designer.",
-        picture: "/Profiles/Albert.webp",
         link: "https://discord.com/users/204040618811326465"
     },
     {
@@ -32,7 +29,6 @@ export default [
         rolesTitle: "Website Developer",
         discordId: "683002779396079667",
         description: "If there's any backend that needs handling, Andy is responsible for all behind-the-scenes action.",
-        picture: "/Profiles/Andy.webp",
         link: "https://discord.com/users/683002779396079667"
     }
 ];

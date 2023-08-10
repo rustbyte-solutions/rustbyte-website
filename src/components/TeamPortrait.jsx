@@ -1,4 +1,6 @@
-function TeamPortrait ({name, roles, rolesTitle, link, picture, description}) {
+function TeamPortrait ({name, roles, rolesTitle, link, description}) {
+    let picture = `/Profiles/${name}.webp`;
+
     return (
         <a className="hover:-translate-y-4 duration-500" href={link} target="_blank">
             <div className="flex flex-col justify-center items-center text-center w-56 md:w-64 bg-[#F9F9F9] dark:bg-[#0A0A0A] border-2 border-[#C6C6C6] dark:border-[#353535] gap-1 px-5 py-2 shadow-xl rounded-lg duration-500">
@@ -17,7 +19,7 @@ function TeamPortrait ({name, roles, rolesTitle, link, picture, description}) {
                 </p>
             </div>
         </a>
-    )
-}
+    );
+};
 
 export default TeamPortrait;

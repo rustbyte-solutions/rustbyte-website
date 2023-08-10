@@ -1,9 +1,8 @@
-import Solution from "../components/Solution"
-import solution from "../data/solution"
+import Solution from "../components/Solution";
+import SolutionsData from "../data/Solutions";
 
 function Solutions () {
     return ([
-        
         <div id="solutions"/>,
         <div class="mt-16 sm:mt-36 px-10">
             <div class="flex flex-col font-inter font-medium items-center w-1/2 mx-auto">
@@ -14,18 +13,17 @@ function Solutions () {
             </div>
 
             <div class="mt-12 mx-12 flex flex-row flex-wrap gap-6 items-stretch justify-center">
-                {solution.map((plugin) => (
+                {SolutionsData.map((solution) => (
                     <Solution
-                        key={plugin.name}
-                        name={plugin.name}
-                        link={plugin.link}
-                        description={plugin.description}
-                        img={plugin.image}
+                        key={solution.name}
+                        name={solution.name}
+                        link={solution.link}
+                        description={solution.description}
                     />
                 ))}
             </div>
         </div>
-    ])
-}
+    ]);
+};
 
 export default Solutions;
