@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../sections/Header.astro";
 import Team from "../sections/Team";
-import Solutions from "../sections/Solutions.astro";
+import Solutions from "../sections/Solutions";
 import Contact from "../sections/Contact.astro";
 import Footer  from "../sections/Footer.astro";
 ---
@@ -16,7 +16,7 @@ import Footer  from "../sections/Footer.astro";
 	<div class="absolute inset-0">
         <Header/>
 		<Team client:visible/>
-		<Solutions/>
+		<Solutions client:visible/>
 		<Contact/>
 		<Footer/>
 	</div>
