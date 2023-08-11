@@ -22,19 +22,12 @@ const { title, description } = Astro.props;
 		<meta name="title" content={title}>
 		<meta name="author" content="rustbyte solutions">
 		<meta name="description" content={description}>
-		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111"/>
-		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF"/>
-		<meta name="theme-color" media="(prefers-color-scheme: no-preference)" content="#FFFFFF"/>
+		<meta name="theme-color" content="#A4EA47"/>
 
 		<title>{title}</title>
 
-		<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="Black/Logo.svg"/>
-		<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="White/Logo.svg"/>
-		<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: no-preference)" href="White/Logo.svg"/>
-
-		<link rel="apple-touch-icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="Black/Logo.svg"/>
-		<link rel="apple-touch-icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="White/Logo.svg"/>
-		<link rel="apple-touch-icon" type="image/svg+xml" media="(prefers-color-scheme: no-preference)" href="White/Logo.svg"/>
+		<link rel="icon" type="image/svg+xml" href="Logo.svg"/>
+		<link rel="apple-touch-icon" type="image/svg+xml" href="Logo.svg"/>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +69,15 @@ const { title, description } = Astro.props;
 	});
 </script>
 
-<style>
+<style is:global>
+	::selection {
+		background: rgba(164, 235, 71, 0.4);
+	}
+
+	::-moz-selection {
+		background: rgba(164, 235, 71, 0.4);
+	}
+
 	.color-scheme-dark {
 		color-scheme: dark;
 	}
