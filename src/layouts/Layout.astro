@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import { Toaster } from "react-hot-toast";
 
 interface Props {
 	title: string;
@@ -53,6 +54,7 @@ const { title, description } = Astro.props;
 		</script>
 	</head>
 	<body class="bg-white dark:bg-[#111111] text-black dark:text-white duration-500">
+		<Toaster position="top-center" reverseOrder={false} client:load />
 		<div class="flex items-center justify-center">
 			<Navbar/>
 		</div>
