@@ -1,12 +1,7 @@
 import TeamPortrait from "../components/TeamPortrait";
 import TeamData from "../data/team";
 
-function Team() {
-    /*  For teams, we return an array of elements, 
-    so that the <div id = "team"/> can be properly used 
-    to scroll down nicely when navbar link is clikced,
-    since we can only return 1 thing in our component */
-    
+function Team () {
     return ([
         <div id="team" />,
         <div className="mt-16 sm:mt-36 px-10">
