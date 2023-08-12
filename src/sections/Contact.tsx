@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import supabase from "../../supabaseClient";
+import { useSupabaseClient } from "../providers/SupabaseProvider";
 
 function Contact () {
 
@@ -8,18 +8,21 @@ function Contact () {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
+    const supabaseClient = useSupabaseClient();
+
     const onSubmit = async (event: any) => {
         event.preventDefault();
         
         if (!email || !message) {
-
             toast.error("You are missing a required field!");
             return;
         }
 
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from("form_data")
             .insert([{name, email, message}])
+            .select("*")
+            
 
         if (error) {
             toast.error(error);
@@ -27,7 +30,6 @@ function Contact () {
         }
 
         if (data) {
-            console.log(data)
             toast.success("Form Submitted!")
             return;
         }
