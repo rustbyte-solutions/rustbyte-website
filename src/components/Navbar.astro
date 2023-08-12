@@ -70,9 +70,28 @@ import NavbarLink from "../components/NavbarLink.astro";
 </style>
 
 <script>
-	const sun = document.getElementById("sun") as HTMLInputElement;
-	const moon = document.getElementById("moon") as HTMLInputElement;
-    const themeButton = document.getElementById("themeButton") as HTMLInputElement;
+    // On scroll down logo disappear
+    // ON scroll up logo appear
+	let prevScrollY = window.scrollY;
+	const navbarLogo = document.getElementById("navbarLogo") as HTMLElement;
+	const navbarText = document.getElementById("navbarText") as HTMLElement;
+
+	window.addEventListener("scroll", () => {
+		if (prevScrollY < window.scrollY) {
+			navbarLogo.classList.add("opacity-5");
+			navbarText.classList.add("opacity-5");
+		} else {
+			navbarLogo.classList.remove("opacity-5");
+			navbarText.classList.remove("opacity-5");
+		}
+
+		prevScrollY = window.scrollY;
+	});
+
+    // Theme toggle button
+	const sun = document.getElementById("sun") as HTMLElement;
+	const moon = document.getElementById("moon") as HTMLElement;
+    const themeButton = document.getElementById("themeButton") as HTMLElement;
 
     themeButton.addEventListener("click", () => {
         if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
@@ -92,10 +111,11 @@ import NavbarLink from "../components/NavbarLink.astro";
         }
     });
 
-	const duration500Items: NodeListOf<HTMLElement> = document.querySelectorAll(".duration-500");
-	const menu = document.getElementById("menu") as HTMLInputElement;
-	const main = document.getElementById("main") as HTMLInputElement;
-    const menuButton = document.getElementById("menuButton") as HTMLInputElement;
+    // Menu button
+	const duration500Items = document.querySelectorAll(".duration-500") as NodeListOf<HTMLElement>;
+	const menu = document.getElementById("menu") as HTMLElement;
+	const main = document.getElementById("main") as HTMLElement;
+    const menuButton = document.getElementById("menuButton") as HTMLElement;
     const menuLinkButtons = document.querySelectorAll("#menuLinkButton") as NodeListOf<HTMLElement>;
 
     menuLinkButtons.forEach(menuLinkButton => {
