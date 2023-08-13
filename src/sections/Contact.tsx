@@ -1,6 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useSupabaseClient } from "../providers/SupabaseProvider";
+import axios from "axios";
 
 function Contact () {
 
@@ -11,12 +12,35 @@ function Contact () {
     const supabaseClient = useSupabaseClient();
 
     const onSubmit = async (event: any) => {
+        /*  TODO: move this function to a proper backend
+            as to not expose this code to the client    */ 
+
         event.preventDefault();
         
         if (!email || !message) {
             toast.error("You are missing a required field!");
             return;
         }
+
+        try {
+            const response = await axios.get(`https://www.disify.com/api/email/${email}`);
+            const isDisposable = response.data.disposable;
+            const isFormat = response.data.format;
+    
+            if (isFormat === false) {
+                toast.error("Invalid email format");
+                return;
+            }
+
+            if (isDisposable === true) {
+                toast.error("Invalid email address!");
+                return;
+            }
+        } catch (error) {
+            console.log(error);
+            return;
+        }
+        
 
         const { data, error } = await supabaseClient
             .from("form_data")
