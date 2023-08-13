@@ -1,21 +1,23 @@
 ---
-let year = new Date().getFullYear();
+import FooterLink from "../components/FooterLink.astro";
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-[#e8e8e8] shadow dark:bg-[#1b1b1b]">
+<footer class="shadow bg-secondary-light dark:bg-secondary-dark">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-6">
         <div class="sm:flex sm:items-center sm:justify-between">
-            <ul class="flex flex-wrap items-center justify-center mx-auto mb-6 text-sm font-medium text-gray-400 sm:mb-0 dark:text-gray-500">
-                <a href="#team" class="mr-4 md:mr-6 underline decoration-transparent hover:decoration-inherit duration-500">Team</a>
-                <a href="#solutions" class="mr-4 md:mr-6 underline decoration-transparent hover:decoration-inherit duration-500">Solutions</a>
-                <a href="#contact" class="mr-4 md:mr-6 underline decoration-transparent hover:decoration-inherit duration-500">Contact</a>
-                <a href="https://discord.rustbyte.dev" class="mr-4 md:mr-6 underline decoration-transparent hover:decoration-inherit duration-500">Discord</a>
-                <a href="https://github.rustbyte.dev" class="mr-4 md:mr-6 underline decoration-transparent hover:decoration-inherit duration-500">Github</a>
-            </ul>
+            <div class="flex flex-wrap items-center justify-center mx-auto mb-6 text-sm font-medium text-gray-400 sm:mb-0 text-accent-light dark:text-accent-dark">
+                <FooterLink text="Team" href="#team"/>
+                <FooterLink text="Solutions" href="#solutions"/>
+                <FooterLink text="Contact" href="#Contact"/>
+                <FooterLink text="Discord" href="discord.rustbyte.dev"/>
+                <FooterLink text="GitHub" href="github.rustbyte.dev"/>
+            </div>
         </div>
-        <hr class="my-6 w-full md:w-1/3 dark:border-gray-500 mx-auto border-gray-400" />
-        <span class="block text-sm dark:text-gray-500 text-center text-gray-400">© {year} 
-            <a href="https://rustbyte.dev" class="underline decoration-transparent hover:decoration-inherit duration-500">Rustbyte</a>. 
+        <hr class="my-6 w-full md:w-1/3 mx-auto border-accent-light dark:border-accent-dark"/>
+        <span class="block text-sm text-accent-light dark:text-accent-dark text-center">© {year} 
+            <a href="https://rustbyte.dev" class="underline decoration-2 decoration-transparent hover:decoration-primary duration-500">Rustbyte</a>. 
             All Rights Reserved.
         </span>
     </div>
