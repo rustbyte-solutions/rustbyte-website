@@ -6,12 +6,12 @@ import NavbarLink from "../components/NavbarLink.astro";
 <!-- Desktop navbar -->
 <div class="hidden sm:flex sm:fixed justify-center items-center z-10 top-5 h-10 w-[75vh]">
     <div class="flex flex-row items-center justify-center w-full h-full">
-        <img class="w-[1.9375rem] h-[1.75rem] mr-2 duration-500" id="navbarLogo" src="Logo.svg" alt="Rustbyte Logo">
-        <img class="mr-24 duration-500" id="navbarText" src="Rustbyte.svg" alt="Rustbyte Text">
+        <img class="mr-2 duration-500" id="navbarLogo" src="Logo.svg" alt="Rustbyte Logo" width="31px" height="28px">
+        <img class="mr-24 duration-500" id="navbarText" src="Rustbyte.svg" alt="Rustbyte Text" width="134px" height="36px">
     </div>
 
     <div class="flex flex-row items-center justify-center rounded-full w-full h-full
-            bg-white dark:bg-black border-2 border-gray-400 dark:border-[#353535]">
+            bg-white dark:bg-black border-2 border-secondary-light dark:border-secondary-dark">
         <div class="flex flex-row mx-8 gap-6">
             <NavbarLink text="Team" href="#team"/>
             <NavbarLink text="Solutions" href="#solutions"/>
@@ -21,8 +21,8 @@ import NavbarLink from "../components/NavbarLink.astro";
 
     <div class="flex flex-row items-center justify-center sm:mx-8 w-full h-full">
         <button class="w-16 h-full flex items-center justify-center rounded-full
-                    bg-white dark:bg-black border-2 border-gray-400 dark:border-[#353535]
-                    hover:border-2 hover:border-[#A4EA47] dark:hover:border-[#A4EA47] duration-500"
+                    bg-white dark:bg-black border-2 border-secondary-light dark:border-secondary-dark
+                    hover:border-2 hover:border-primary hover:dark:border-primary duration-500"
                 aria-label="Dark/light mode switch" id="themeButton">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="moon">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
@@ -37,7 +37,7 @@ import NavbarLink from "../components/NavbarLink.astro";
 
 
 <!-- Mobile menu button -->
-<button id="menuButton" class="z-20 fixed sm:hidden top-2 right-2 rounded-full flex-row px-2 py-2 bg-white/20 dark:bg-black/20 backdrop-blur-[8px] shadow-sm">
+<button id="menuButton" title="Menu button" class="z-20 fixed sm:hidden top-2 right-2 rounded-full flex-row px-2 py-2 bg-white/20 dark:bg-black/20 backdrop-blur-[8px] shadow-sm">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
         stroke="currentColor" class="w-8 h-8" stroke-width="1.5">
     <path stroke-linecap="round" stroke-linejoin="round"
@@ -70,9 +70,28 @@ import NavbarLink from "../components/NavbarLink.astro";
 </style>
 
 <script>
-	const sun = document.getElementById("sun") as HTMLInputElement;
-	const moon = document.getElementById("moon") as HTMLInputElement;
-    const themeButton = document.getElementById("themeButton") as HTMLInputElement;
+    // On scroll down logo disappear
+    // ON scroll up logo appear
+	let prevScrollY = window.scrollY;
+	const navbarLogo = document.getElementById("navbarLogo") as HTMLElement;
+	const navbarText = document.getElementById("navbarText") as HTMLElement;
+
+	window.addEventListener("scroll", () => {
+		if (prevScrollY < window.scrollY) {
+			navbarLogo.classList.add("opacity-5");
+			navbarText.classList.add("opacity-5");
+		} else {
+			navbarLogo.classList.remove("opacity-5");
+			navbarText.classList.remove("opacity-5");
+		}
+
+		prevScrollY = window.scrollY;
+	});
+
+    // Theme toggle button
+	const sun = document.getElementById("sun") as HTMLElement;
+	const moon = document.getElementById("moon") as HTMLElement;
+    const themeButton = document.getElementById("themeButton") as HTMLElement;
 
     themeButton.addEventListener("click", () => {
         if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
@@ -92,10 +111,11 @@ import NavbarLink from "../components/NavbarLink.astro";
         }
     });
 
-	const duration500Items: NodeListOf<HTMLElement> = document.querySelectorAll(".duration-500");
-	const menu = document.getElementById("menu") as HTMLInputElement;
-	const main = document.getElementById("main") as HTMLInputElement;
-    const menuButton = document.getElementById("menuButton") as HTMLInputElement;
+    // Menu button
+	const duration500Items = document.querySelectorAll(".duration-500") as NodeListOf<HTMLElement>;
+	const menu = document.getElementById("menu") as HTMLElement;
+	const main = document.getElementById("main") as HTMLElement;
+    const menuButton = document.getElementById("menuButton") as HTMLElement;
     const menuLinkButtons = document.querySelectorAll("#menuLinkButton") as NodeListOf<HTMLElement>;
 
     menuLinkButtons.forEach(menuLinkButton => {
