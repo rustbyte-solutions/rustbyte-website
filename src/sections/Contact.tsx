@@ -36,8 +36,8 @@ function Contact () {
                 toast.error("Invalid email address!");
                 return;
             }
-        } catch (error) {
-            console.log(error);
+        } catch (error: any) {
+            toast.error(error);
             return;
         }
         
@@ -77,7 +77,7 @@ function Contact () {
                     <input onChange={(event) => setName(event.target.value)} type="text" name="name" placeholder="Name" className="p-2 border-2 border-gray-400 dark:border-[#353535] dark:bg-[#0A0A0A] bg-white rounded-lg" value={name}/>
                     <input onChange={(event) => setEmail(event.target.value)} type="text" name="email" placeholder="Email" className="p-2 border-2 border-gray-400 dark:border-[#353535] dark:bg-[#0A0A0A] bg-white rounded-lg" value={email}/>
                     <textarea onChange={(event) => setMessage(event.target.value)} name="message" placeholder="Leave a message!" className="h-2/3 p-2 border-2 border-gray-400 dark:border-[#353535] dark:bg-[#0A0A0A] bg-white rounded-lg" value={message}></textarea>
-                    <button type="submit" className="rounded-md md:w-1/4 px-9 py-4 font-normal bg-black dark:bg-white text-white dark:text-black">Submit</button>
+                    <button type="submit" className="rounded-md md:w-1/4 px-9 py-4 font-medium bg-primary text-black">Submit</button>
                 </form>
             </div>
         </div>
