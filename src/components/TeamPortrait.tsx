@@ -1,4 +1,19 @@
-function TeamPortrait ({name, roles, rolesTitle, link, description}) {
+interface TeamPortraitProps {
+    name: string,
+    roles: string,
+    rolesTitle: string,
+    link: string,
+    description: string
+}
+
+const  TeamPortrait: React.FC<TeamPortraitProps> = ({
+    name,
+    roles,
+    rolesTitle,
+    link,
+    description
+}) => {
+
     let picture = `/Profiles/${name}.webp`;
 
     return (

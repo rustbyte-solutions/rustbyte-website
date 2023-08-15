@@ -1,4 +1,15 @@
-function Solution ({name, link, description}) {
+interface SolutionProps {
+    name: string,
+    link: string,
+    description: string
+}
+
+const Solution: React.FC<SolutionProps> = ({
+    name,
+    link,
+    description
+}) => {
+    
     let image = `/Solutions/${name}.webp`;
 
     return (

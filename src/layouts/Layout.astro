@@ -1,5 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import ToasterProvider from "../providers/ToasterProvider"
+import { SupabaseProvider } from "../providers/SupabaseProvider"
 
 interface Props {
 	title: string;
@@ -46,13 +48,16 @@ const { title, description } = Astro.props;
 		</script>
 	</head>
 	<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark duration-500">
-		<div class="flex items-center justify-center">
-			<Navbar/>
-		</div>
+		<SupabaseProvider>
+			<ToasterProvider client:load/>
+			<div class="flex items-center justify-center">
+				<Navbar/>
+			</div>
 
-		<div id="main">
-			<slot/>
-		</div>
+			<div id="main">
+				<slot/>
+			</div>
+		</SupabaseProvider>
 	</body>
 </html>
 
