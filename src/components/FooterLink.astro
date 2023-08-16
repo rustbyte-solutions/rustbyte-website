@@ -1,0 +1,12 @@
+---
+interface Props {
+	text: string;
+	href: string;
+}
+
+const { text, href } = Astro.props;
+---
+
+<a class="mr-4 md:mr-6 underline decoration-2 decoration-transparent hover:decoration-primary duration-500" href={href}>
+    {text}
+</a>
