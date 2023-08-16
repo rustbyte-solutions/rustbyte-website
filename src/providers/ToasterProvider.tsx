@@ -5,9 +5,15 @@ import { Toaster } from "react-hot-toast"
     if needed */
 
 const ToasterProvider = () => {
-    return (
-        <Toaster position="top-right"/>
-    )
+    return ([
+        <div className="block sm:hidden">
+            <Toaster position="top-center"/>            
+        </div>,
+
+        <div className="hidden sm:block">
+            <Toaster position="top-right"/>
+        </div>
+    ])
 }
 
 export default ToasterProvider;
