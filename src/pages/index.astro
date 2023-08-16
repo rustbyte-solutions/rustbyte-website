@@ -1,22 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/Button.astro";
+import Header from "../sections/Header.astro";
+import Team from "../sections/Team";
+import Solutions from "../sections/Solutions";
+import Contact from "../sections/Contact";
+import Footer  from "../sections/Footer.astro";
 ---
 
-<Layout title="Home" description="The home page of the rustbyte solutions website.">
-	<img class="mt-24 md:mt-32 lg:mt-0" alt="Rustbyte Logo" height="128px" width="240px" src="./logo.svg">
-
-	<h1 class="mt-4 text-5xl font-bold">
-		Innovative Rust Solutions
-	</h1>
-
-	<h2 class="mt-2 text-xl mx-12 sm:mx-28 md:mx-44 lg:mx-72 xl:mx-96 2xl:mx-[42rem]">
-		We are a small group of passionate, hard-working and like-minded individuals 
-		who love developing solutions for <a class="underline hover:text-transparent bg-clip-text bg-gradient-to-br from-[#38e5e3] to-[#4e89d3] duration-500" href="https://rust.facepunch.com/">Rust</a>.
-	</h2>
-
-	<div class="mt-2 flex flex-row gap-4">
-		<Button text="Team" href="/team"/>
-		<Button text="Solutions" href="/solutions"/>
+<Layout title="rustbyte solutions" description="Explore what rustbyte solutions has to offer">
+	<div class="relative">
+        <img class="fade w-screen h-[90vh] object-cover opacity-10 block dark:hidden" src="Black/Waves.webp" alt="">
+		<img class="fade w-screen h-[90vh] object-cover opacity-10 hidden dark:block" src="White/Waves.webp" alt="">
 	</div>
+
+	<div class="absolute inset-0">
+        <Header/>
+		<Team/>
+		<Solutions/>
+		<Contact client:visible/>
+		<Footer/>
+	</div>
+
 </Layout>
+
+<style> 
+	.fade {
+		mask-image: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, #ffffff 100%);
+	}
+</style>
