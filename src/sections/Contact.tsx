@@ -12,8 +12,6 @@ function Contact () {
     const supabaseClient = useSupabaseClient();
 
     const onSubmit = async (event: any) => {
-        /*  TODO: move this function to a proper backend
-            as to not expose this code to the client    */ 
 
         event.preventDefault();
         
