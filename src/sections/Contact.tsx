@@ -47,7 +47,7 @@ function Contact () {
             
 
         if (error) {
-            toast.error(error);
+            toast.error(String(error));
             return;
         }
 
