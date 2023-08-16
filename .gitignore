@@ -3,8 +3,6 @@ dist/
 
 # generated types
 .astro/
-.vscode/
-types_db.ts
 
 # dependencies
 node_modules/
@@ -18,7 +16,6 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-.env.local
 
 # macOS-specific files
 .DS_Store

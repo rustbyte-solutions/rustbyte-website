@@ -1,37 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	darkMode: 'class',
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		colors: {
-			transparent: 'transparent',
-			current: 'currentColor',
-			
-			white: colors.white,
-			black: colors.black,
-
-			'text': {
-				dark: '#fdfdfc',
-				light: '#030302',
+		extend: {
+			fontFamily: {
+				"inter": ["Inter", ...defaultTheme.fontFamily.sans],
+			}
+		},
+		animation: {
+			text: 'text 1s ease infinite',
+		  },
+		  keyframes: {
+			text: {
+			  '0%, 100%': {
+				'background-size': '200% 200%',
+				'background-position': 'left center',
+			  },
+			  '50%': {
+				'background-size': '200% 200%',
+				'background-position': 'right center',
+			  },
 			},
-			'background': {
-				darker: '#0A0A0A',
-				dark: '#0e0e0e',
-				light: '#fdfdfc',
-			},
-			'primary': '#ace128',
-			'secondary': {
-				dark: '#242522',
-				light: '#d7d8d5',
-			},
-			'accent': {
-				dark: '#8d8797',
-				light: '#756c72',
-			},
-		}
+		  },
 	},
-	plugins: []
+	plugins: [],
 }
