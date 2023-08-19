@@ -20,5 +20,3 @@ export const SupabaseProvider: React.FC<SupabaseProviderProps> = ({
         </SupabaseContext.Provider>
     )
 }
-
-

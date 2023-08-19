@@ -62,11 +62,14 @@ function Contact () {
         <div id="contact"/>,
         <div className="w-[20rem] md:w-[67rem] mb-16 md:h-3/4 mx-auto md:flex justify-between mt-10 sm:mt-36">
             <div className="inline font-inter font-bold">
-                <h1 className="text-5xl md:text-7xl text-center tracking-tight md:text-left">Contact Us</h1>
+                <h1 className="text-5xl md:text-7xl text-center tracking-tight md:text-left">
+                    Contact Us
+                </h1>
+
                 <p className="font-medium text-center md:text-left mt-5 md:mt-10 text-xl md:text-2xl leading-tight">
-                    <span className="block">Wether you have a suggestion</span>
-                    <span className="block">or want to give feedack</span>
-                    <span>we're here to listen</span>
+                    Whether you have a suggestion<br/>
+                    or want to give us feedback<br/>
+                    we're here to listen<br/>
                 </p>
             </div>
 
@@ -74,9 +77,9 @@ function Contact () {
                 <form onSubmit={onSubmit} id="rustbyte-contact" className="flex flex-col gap-2 w-full">
                     <input onChange={(event) => setName(event.target.value)} type="text" name="name" placeholder="Name" value={name} className={defaultInputClass}/>
                     <input onChange={(event) => setEmail(event.target.value)} type="text" name="email" placeholder="Email" value={email} className={defaultInputClass}/>
-                    <textarea onChange={(event) => setMessage(event.target.value)} name="message" placeholder="Leave a message!" value={message} className={`${defaultInputClass} h-2/3`}/>
+                    <textarea onChange={(event) => setMessage(event.target.value)} name="message" placeholder="Leave a message!" value={message} className={`${defaultInputClass} h-2/3 resize-none`}/>
 
-                    <button type="submit" className="rounded-md md:w-1/4 px-9 py-4 font-medium bg-primary text-black">Submit</button>
+                    <button type="submit" className="mt-1 rounded-md md:w-1/4 px-9 py-4 font-medium bg-primary text-black hover:-translate-y-1 duration-500">Submit</button>
                 </form>
             </div>
         </div>

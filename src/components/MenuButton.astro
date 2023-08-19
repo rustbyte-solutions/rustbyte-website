@@ -7,6 +7,6 @@ export interface Props {
 const { text, href } = Astro.props;
 ---
 
-<a href={href} class="font-bold duration-500" id="menuLinkButton">
+<a href={href} class="font-bold menuLinkButton hover:translate-x-2 duration-500">
     <button>{text}</button>
 </a>

@@ -28,8 +28,8 @@ module.exports = {
 				light: '#d7d8d5',
 			},
 			'accent': {
-				dark: '#8d8797',
-				light: '#756c72',
+				dark: '#BBAFBB',
+				light: '#3E383C',
 			},
 		}
 	},

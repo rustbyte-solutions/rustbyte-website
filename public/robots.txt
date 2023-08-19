@@ -1,2 +1,4 @@
 User-Agent: *
 Allow: /
+
+Sitemap: https://rustbyte.dev/sitemap-index.xml

@@ -4,7 +4,7 @@ import NavbarLink from "../components/NavbarLink.astro";
 ---
 
 <!-- Desktop navbar -->
-<div class="hidden sm:flex sm:fixed justify-center items-center z-10 top-5 h-10 w-[75vh]">
+<div class="hidden sm:flex sm:fixed justify-center items-center z-10 top-5 h-10 w-[75vh] transition-opacity ease-in-out duration-300" id="navbar">
     <div class="flex flex-row items-center justify-center w-full h-full">
         <img class="mr-2 duration-500" id="navbarLogo" src="Logo.svg" alt="Rustbyte Logo" width="31px" height="28px">
         <img class="mr-24 duration-500" id="navbarText" src="Rustbyte.svg" alt="Rustbyte Text" width="134px" height="36px">
@@ -13,8 +13,8 @@ import NavbarLink from "../components/NavbarLink.astro";
     <div class="flex flex-row items-center justify-center rounded-full w-full h-full
             bg-white dark:bg-black border-2 border-secondary-light dark:border-secondary-dark">
         <div class="flex flex-row mx-8 gap-6">
-            <NavbarLink text="Team" href="#team"/>
             <NavbarLink text="Solutions" href="#solutions"/>
+            <NavbarLink text="Team" href="#team"/>
             <NavbarLink text="Contact" href="#contact"/>
         </div>
     </div>
@@ -46,44 +46,28 @@ import NavbarLink from "../components/NavbarLink.astro";
 </button>
 
 <!-- Mobile menu -->
-<menu id="menu" class="fixed top-0 left-0 z-10 flex items-center justify-center invisible w-screen h-screen">
+<menu id="menu" class="fixed top-0 left-0 z-10 flex items-center justify-center w-screen h-screen opacity-0 pointer-events-none">
 	<div class="flex flex-col justify-center items-start gap-2 sm:gap-4 md:gap-6 bg-clip-text bg-gradient-to-r from-[#38e5e3] to-[#4e89d3] text-3xl">
-		<Button text="Team" href="#team" />
 		<Button text="Solutions" href="#solutions"/>
+        <Button text="Team" href="#team"/>
 		<Button text="Contact" href="#contact"/>
 	</div>
 </menu>
 
-
-<style>
-    .invisible {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s linear 300ms, opacity 300ms;
-    }
-
-    .visibile {
-        visibility: visible;
-        opacity: 1;
-        transition: visibility 0s linear 0s, opacity 300ms;
-    }
-</style>
-
 <script>
-    // On scroll down logo disappear
-    // ON scroll up logo appear
+    // On scroll down navbar fade out
+    // On scroll up navbar fade in
 	let prevScrollY = window.scrollY;
-	const navbarLogo = document.getElementById("navbarLogo") as HTMLElement;
-	const navbarText = document.getElementById("navbarText") as HTMLElement;
+	const navbar = document.getElementById("navbar") as HTMLElement;
 
 	window.addEventListener("scroll", () => {
-		if (prevScrollY < window.scrollY) {
-			navbarLogo.classList.add("opacity-5");
-			navbarText.classList.add("opacity-5");
-		} else {
-			navbarLogo.classList.remove("opacity-5");
-			navbarText.classList.remove("opacity-5");
-		}
+        if (prevScrollY < window.scrollY) {
+            navbar.classList.add("opacity-0");
+            navbar.classList.add("pointer-events-none");
+        } else {
+            navbar.classList.remove("opacity-0");
+            navbar.classList.remove("pointer-events-none");
+        }
 
 		prevScrollY = window.scrollY;
 	});
@@ -112,50 +96,35 @@ import NavbarLink from "../components/NavbarLink.astro";
     });
 
     // Menu button
-	const duration500Items = document.querySelectorAll(".duration-500") as NodeListOf<HTMLElement>;
 	const menu = document.getElementById("menu") as HTMLElement;
 	const main = document.getElementById("main") as HTMLElement;
     const menuButton = document.getElementById("menuButton") as HTMLElement;
-    const menuLinkButtons = document.querySelectorAll("#menuLinkButton") as NodeListOf<HTMLElement>;
+    const menuLinkButtons = document.querySelectorAll(".menuLinkButton") as NodeListOf<HTMLElement>;
 
     menuLinkButtons.forEach(menuLinkButton => {
         menuLinkButton.addEventListener("click", () => {
-            duration500Items.forEach(item => {
-                item.classList.add("duration-500");
-            });
+            menu.classList.add("opacity-0");
+            menu.classList.add("pointer-events-none");
 
             document.body.style.overflow = "auto";
-
-            main.classList.remove("invisible");
-
-            menu.classList.remove("visibile");
-            menu.classList.add("invisible");
+            main.classList.remove("opacity-0");
+            main.classList.remove("pointer-events-none");
         });
     });
 
 	menuButton.addEventListener("click", () => {
-		if (menu.classList.contains("invisible")) {
-			duration500Items.forEach(item => {
-				item.classList.remove("duration-500");
-			})
-
-			document.body.style.overflow = "hidden";
-
-			main.classList.add("invisible");
-
-			menu.classList.remove("invisible");
-			menu.classList.add("visibile");
+		if (menu.classList.contains("opacity-0")) {
+            main.classList.add("opacity-0");
+            main.classList.add("pointer-events-none");
+            
+            menu.classList.remove("opacity-0");
+            menu.classList.remove("pointer-events-none");
 		} else {
-			duration500Items.forEach(item => {
-				item.classList.add("duration-500");
-			})
+            menu.classList.add("opacity-0");
+            menu.classList.add("pointer-events-none");
 
-			document.body.style.overflow = "auto";
-
-			main.classList.remove("invisible");
-
-			menu.classList.remove("visibile");
-			menu.classList.add("invisible");
+            main.classList.remove("opacity-0");
+            main.classList.remove("pointer-events-none");
 		}
 	});
 </script>

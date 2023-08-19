@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
-import ToasterProvider from "../providers/ToasterProvider"
+import NavbarTest from "../components/NavbarTest.astro";
+import ToastProvider from "../providers/ToastProvider";
 import { SupabaseProvider } from "../providers/SupabaseProvider"
 
 interface Props {
@@ -49,13 +50,12 @@ const { title, description } = Astro.props;
 	</head>
 	<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark duration-500">
 		<SupabaseProvider>
-			<ToasterProvider client:load/>
+			<ToastProvider client:load/>
 			
-			<div class="flex items-center justify-center">
-				<Navbar/>
-			</div>
+				<!-- <Navbar/> -->
+			<NavbarTest/>
 
-			<div id="main">
+			<div id="main" class="transition-opacity ease-in-out duration-300">
 				<slot/>
 			</div>
 		</SupabaseProvider>
@@ -76,6 +76,10 @@ const { title, description } = Astro.props;
 </script>
 
 <style is:global>
+	* {
+		box-sizing: border-box;
+	}
+
 	::selection {
 		background: rgba(164, 235, 71, 0.4);
 	}
