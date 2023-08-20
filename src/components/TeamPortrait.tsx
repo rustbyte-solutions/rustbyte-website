@@ -2,7 +2,7 @@ interface TeamPortraitProps {
     name: string,
     roles: string,
     rolesTitle: string,
-    link: string,
+    discordId: string,
     description: string
 }
 
@@ -10,11 +10,12 @@ const  TeamPortrait: React.FC<TeamPortraitProps> = ({
     name,
     roles,
     rolesTitle,
-    link,
+    discordId,
     description
 }) => {
 
-    let picture = `/Profiles/${name}.webp`;
+    const link = `discord://-/users/${discordId}`
+    const picture = `/Profiles/${name}.webp`;
 
     return (
         <a className="hover:-translate-y-4 duration-500" href={link} target="_blank">

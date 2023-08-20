@@ -5,10 +5,10 @@ function Solutions () {
     return ([
         <div id="solutions"/>,
         <div className="mt-16 sm:mt-36 px-10">
-            <div className="flex flex-col font-inter font-medium items-center w-1/2 mx-auto">
+            <div className="flex flex-col font-inter font-medium items-center mx-auto">
                 <h1 className="md:text-7xl text-5xl text-center tracking-tight font-bold">Our Solutions</h1>
-                <p className="md:text-2xl text-xl text-center mt-4">We strive to make the in-game experience of our users
-                    <span className="block">to be the best it can be while keeping quality of life in mind</span>
+                <p className="md:text-2xl text-xl text-center mt-4">
+                    We strive to make the in-game experience of our users <br/> to be the best it can be while keeping quality of life in mind
                 </p>
             </div>
 

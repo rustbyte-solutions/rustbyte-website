@@ -10,7 +10,7 @@ const Solution: React.FC<SolutionProps> = ({
     description
 }) => {
     
-    let image = `/Solutions/${name}.webp`;
+    const image = `/Solutions/${name}.webp`;
 
     return (
         <a className="flex hover:-translate-y-4 duration-500" href={link} target="_blank">
