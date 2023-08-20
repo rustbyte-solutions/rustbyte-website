@@ -1,6 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
-import NavbarTest from "../components/NavbarTest.astro";
+import NavbarTest from "../components/Navbar.astro";
 import ToastProvider from "../providers/ToastProvider";
 import { SupabaseProvider } from "../providers/SupabaseProvider"
 
@@ -34,8 +34,8 @@ const { title, description } = Astro.props;
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+
 		<script is:inline>
 			if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
 				document.documentElement.classList.add("dark");
@@ -52,8 +52,7 @@ const { title, description } = Astro.props;
 		<SupabaseProvider>
 			<ToastProvider client:load/>
 			
-				<!-- <Navbar/> -->
-			<NavbarTest/>
+			<Navbar/>
 
 			<div id="main" class="transition-opacity ease-in-out duration-300">
 				<slot/>
