@@ -22,4 +22,4 @@ jobs:
             cd rustbyte-website
             git pull
             docker build -t rustbyte-website .
-            docker run --name rustbyte-website -d -p 8080:8080  rustbyte-website
+            docker run --name rustbyte-website -d -p 8899:8899  rustbyte-website
