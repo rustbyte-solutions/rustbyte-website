@@ -13,10 +13,5 @@ export default [
         name: "Range Finder",
         link: "https://codefling.com/plugins/range-finder",
         description: "Adds a simplistic range finder to the binoculars."
-    },
-    {
-        name: "Glorious Deaths",
-        link: "https://codefling.com/plugins/glorious-deaths",
-        description: "Adds some flair to your corpse when you're killed by another player!"
     }
 ];
