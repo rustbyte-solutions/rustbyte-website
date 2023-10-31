@@ -13,5 +13,10 @@ export default [
         name: "Range Finder",
         link: "https://codefling.com/plugins/range-finder",
         description: "Adds a simplistic range finder to the binoculars."
+    },
+    {
+        name: "Trash Box",
+        link: "https://codefling.com/plugins/trash-box",
+        description: "Adds an easy and automated way for players to get rid of unwanted items."
     }
 ];
