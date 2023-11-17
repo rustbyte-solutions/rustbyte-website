@@ -19,7 +19,7 @@ jobs:
           script: |
             sudo docker stop rustbyte-website
             sudo docker rm rustbyte-website
-            cd rustbyte-website
-            git pull
+            cd personal/rustbyte-website
+            sudo git pull
             sudo docker build -t rustbyte-website .
             sudo docker run --name rustbyte-website -d -p 8899:8899  rustbyte-website
