@@ -21,17 +21,17 @@ export default [
         description: "Designer first, frontend second. Albert helped in coding the website and is our main designer.",
     },
     {
-        name: "Andy",
-        roles: "Bot Dev",
-        rolesTitle: "Bot Developer",
-        discordId: "683002779396079667",
-        description: "Andy is our spokesperson for",
-    },
-    {
         name: "Hadock",
         roles: "Bot Dev",
         rolesTitle: "Bot Developer",
         discordId: "412734157819609090",
         description: "Hadock helps us with commissions relating Discord bots and helps us develop our own bot.",
+    },
+    {
+        name: "Andy",
+        roles: "Bot Dev",
+        rolesTitle: "Bot Developer",
+        discordId: "683002779396079667",
+        description: "Andy is our spokesperson for",
     }
 ];
